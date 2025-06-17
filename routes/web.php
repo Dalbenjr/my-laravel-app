@@ -15,3 +15,6 @@ Route::post('/logout', [UserController::class, 'logout'])->middleware('mustBeLog
 Route::get('/create-post', [PostController::class, 'showCreateForm'])->middleware('mustBeLoggedIn'); //Intercepts the request and runs if func only if user is logged in
 Route::post('/create-post', [PostController::class, 'storeNewPost'])->middleware('mustBeLoggedIn');
 Route::get('/post/{post}', [PostController::class, 'viewSinglePost']);
+
+// Profile related routes
+Route::get('/profile/{user:username}', [UserController::class, 'profile']);
